@@ -5,7 +5,7 @@ public class Card {
     public int rank;
 
     public static final String[] SUITS = new String[]{"CLUBS", "DIAMONDS", "HEARTS", "SPADES"};
-    public static final String[] RANKS = new String[]{"ACE", "2", "3", "4", "5", "6", "7", "8", "9", "10", "JACK", "QUEEN", "KING"};
+    public static final String[] RANKS = new String[]{"2", "3", "4", "5", "6", "7", "8", "9", "10", "JACK", "QUEEN", "KING", "ACE"};
     public static final int SUITS_COUNT = SUITS.length;
     public static final int RANKS_COUNT = RANKS.length;
 
