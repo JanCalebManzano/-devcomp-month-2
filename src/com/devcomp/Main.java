@@ -1,24 +1,24 @@
 package com.devcomp;
 
 import com.devcomp.models.Deck;
+import com.devcomp.models.Player;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        final Integer PLAYER_COUNT = Integer.parseInt(getInput("PLAYERS: "));
+        int playerCount = Integer.parseInt(getInput("PLAYERS: "));
 
         Deck deck = new Deck();
-        deck.print();
+        List<Player> players = Player.initialize(playerCount, deck);
 
-        System.out.println("DRAW");
-        System.out.println(deck.draw());
-        System.out.println(deck.draw());
-
-        System.out.println("CARDS LEFT: " + deck.cardList.size());
+        players.forEach(player -> {
+            System.out.println("Player: " + player.hand);
+        });
     }
 
     private static String getInput(String message) throws IOException {
@@ -26,4 +26,6 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         return reader.readLine();
     }
+
+
 }

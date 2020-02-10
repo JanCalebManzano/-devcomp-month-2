@@ -1,7 +1,6 @@
 package com.devcomp.models;
 
-import java.util.Collections;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Deck {
     public LinkedList<Card> cardList;
@@ -13,8 +12,8 @@ public class Deck {
 
     private void initialize() {
         this.cardList = new LinkedList<>();
-        for (Integer suit = 0; suit < Card.SUITS_COUNT; suit++) {
-            for (Integer rank = 0; rank < Card.RANKS_COUNT; rank++) {
+        for (int suit = 0; suit < Card.SUITS_COUNT; suit++) {
+            for (int rank = 0; rank < Card.RANKS_COUNT; rank++) {
                 Card card = new Card(suit, rank);
                 cardList.add(card);
             }
@@ -27,6 +26,10 @@ public class Deck {
 
     public Card draw() {
         return this.cardList.removeLast();
+    }
+
+    public Set<Card> getHand() {
+        return new HashSet<>(Arrays.asList(this.draw(), this.draw(), this.draw(), this.draw(), this.draw()));
     }
 
     public void print() {
