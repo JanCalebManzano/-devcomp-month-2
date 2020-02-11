@@ -12,15 +12,12 @@ public class Main {
         Player.count = Player.getPlayerCount();
 
         Deck deck = new Deck();
-        System.out.println("\nInitial Deck: ");
-        deck.print();
-
         List<Player> players = Player.initialize(deck);
+    }
+
+    private static void printPlayerHands(List<Player> players) {
         System.out.println("\nPlayers' hand: ");
         players.forEach(player -> System.out.println("Player: " + player.hand));
-
-        System.out.println("\nCard(s) left: ");
-        deck.print();
     }
 
 }
