@@ -33,6 +33,6 @@ public class Deck {
     }
 
     public void print() {
-        this.cardList.forEach(card -> System.out.println(card));
+        this.cardList.forEach(System.out::println);
     }
 }
