@@ -37,11 +37,11 @@ public class Player {
             .forEach(index -> {
                 players.get(index % Player.count).hand.add(deck.draw());
 
-                if ((index % Player.count) == (Player.count-1)) {
-                    AtomicInteger i = new AtomicInteger();
+                if ((index % Player.count) == (Player.count - 1)) {
+                    AtomicInteger iter = new AtomicInteger();
                     players.forEach( (player) -> {
-                        i.getAndIncrement();
-                        System.out.println("Round" + player.hand.size() + "; Player:" + i + " " + Logics.getCombination(player));
+                        iter.getAndIncrement();
+                        System.out.println("Round" + player.hand.size() + "; Player:" + iter + " " + Logics.getCombination(player));
                         Logics.checkHand(player.hand);
                     });
                 }

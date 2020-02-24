@@ -12,9 +12,9 @@ public class Logics {
 
     public static int getCombination(Player player) {
         int total = 52 - (Player.count * player.hand.size());
-        int find = 5 - player.hand.size();
+        int choose = 5 - player.hand.size();
 
-        return Generator.getCombinationCount(total, find);
+        return Combinatorics.choose(total, choose);
     }
 
     public static void checkHand(Set<Card> hand) {
@@ -26,11 +26,11 @@ public class Logics {
         System.out.println(suit.toString());
         System.out.println(isRoyalPossible(suit, hand));
         System.out.println(isFourPossible(ranks));
-        System.out.println(isStraightFlash(ranksCards, suit));
+        System.out.println(isStraightFlush(ranksCards, suit));
 //        royal.stream().forEach(c -> System.out.println(Card.RANKS[c]));
     }
 
-    public int computeRoyalFlashChance(int combination) {
+    public int computeRoyalFlushChance(int combination) {
         return (1 / combination) % 100;
     }
 
@@ -42,7 +42,7 @@ public class Logics {
         return ranks.size() <= 2;
     }
 
-    public static boolean isStraightFlash(int[] hand, Set<Integer> suit) {
+    public static boolean isStraightFlush(int[] hand, Set<Integer> suit) {
         if (suit.size() != 1) {
             return false;
         }

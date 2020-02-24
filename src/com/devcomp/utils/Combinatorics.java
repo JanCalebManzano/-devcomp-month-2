@@ -3,9 +3,9 @@ package com.devcomp.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Generator {
+public class Combinatorics {
 
-    public static int getCombinationCount(int n, int r) {
+    public static int choose(int n, int r) {
         return generate(n, r).size();
     }
 
@@ -15,7 +15,7 @@ public class Generator {
         return combinations;
     }
 
-    private static void helper(List<int[]> combinations, int data[], int start, int end, int index) {
+    private static void helper(List<int[]> combinations, int[] data, int start, int end, int index) {
         if (index == data.length) {
             int[] combination = data.clone();
             combinations.add(combination);
